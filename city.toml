@@ -1,0 +1,76 @@
+# repo-city config. Everything except [profile].user is optional.
+
+[profile]
+user = "gnaneshwar151120"                 # your GitHub username
+name = "Gnaneshwar Reddy"
+tagline = "AI agents · infra monitoring · data."
+highlight = "Welcome to my repo city."
+# subtitle = "every building is one of my repos · height = repo size"
+
+[repos]
+min_readme_bytes = 1000                   # skip repos without a real README (0 keeps everything)
+include_forks = false
+include_archived = false
+exclude = ["Recidivism"]                  # repos to leave out by name
+show_other = true                         # repos that match no district go to "Other projects"
+
+# Districts. A repo joins the first district that lists it by name, language or topic.
+# Leave them out entirely and you get one district per language.
+[[district]]
+name = "Automation & Infra"
+color = "#34d399"
+repos = ["linkedin-post-pipeline", "wsl-almalinux-monitoring"]
+
+[[district]]
+name = "Data Engineering"
+color = "#4c8dff"
+repos = ["pyspark-nyc-taxi-etl", "StrataScratch-SQL-solutions", "AD_HOC"]
+
+[[district]]
+name = "Machine Learning"
+color = "#a78bfa"
+repos = ["Linear_Algebra_Meets_Images_PCA_for_compression_and_Feature_Extraction", "credit-card-cancellation-prediction", "defaultcreditcard"]
+
+[[district]]
+name = "Analytics"
+color = "#f59e0b"
+languages = ["Jupyter Notebook"]
+
+# Short names for long repo names (otherwise the name is shortened automatically)
+[labels]
+"linkedin-post-pipeline" = "post-pipeline"
+"wsl-almalinux-monitoring" = "almalinux-monitor"
+"pyspark-nyc-taxi-etl" = "nyc-taxi-etl"
+"StrataScratch-SQL-solutions" = "sql-solutions"
+"AD_HOC" = "ad-hoc-sql"
+"Linear_Algebra_Meets_Images_PCA_for_compression_and_Feature_Extraction" = "pca-images"
+"credit-card-cancellation-prediction" = "card-churn"
+"defaultcreditcard" = "card-default"
+"insurance-auto-claims-analysis" = "insurance-claims"
+"Mental-Health-Care-in-the-Last-4-WEEKS" = "mental-health"
+"BEST-XI-OF-IPL-2024" = "ipl-best-xi"
+"AQI_INDEX" = "aqi-index"
+
+# Blimps float over the city (up to 6): certifications, awards, anything.
+[[blimp]]
+text = "4× Claude Certified"
+color = "#d97757"
+
+[[blimp]]
+text = "3× Microsoft Certified"
+color = "#0078d4"
+
+[[blimp]]
+text = "6× Grafana Labs"
+color = "#f46800"
+
+[[blimp]]
+text = "Databricks Fundamentals"
+color = "#ff3621"
+
+# Traffic around the island: each vehicle carries one technology.
+# Kinds cycle through car, bus, truck, taxi and van; pin one with {text = "Python", type = "bus"}.
+[traffic]
+speed = 28                                # pixels per second
+vehicles = ["Python", "SQL", "PySpark", "Claude Code", "MCP", "Prometheus", "Grafana", "Loki",
+            "Puppet", "Linux", "NGINX", "PostgreSQL", "Azure", "Playwright", "Databricks", "GitHub Actions"]

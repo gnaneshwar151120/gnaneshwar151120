@@ -1,21 +1,6 @@
 <p align="center">
-  <a href="https://github.com/gnaneshwar151120?tab=repositories"><img src="assets/repo-city.svg" alt="Gnaneshwar Reddy's repo city: each repo is a building in one of four districts; certifications float above as blimps and technologies ride a train around the island." width="100%"></a>
+  <a href="https://github.com/gnaneshwar151120?tab=repositories"><img src="assets/repo-city.svg" alt="Gnaneshwar Reddy's repo city: each repo is a building in one of four districts; certifications float above as blimps and traffic carrying technologies circles the island." width="100%"></a>
 </p>
-
-<div align="center">
-
-**🏙️ City directory** · click a building
-
-| | |
-|:--|:--|
-| 🟩 **Automation & Infra** | [post-pipeline](https://github.com/gnaneshwar151120/linkedin-post-pipeline) · [almalinux-monitor](https://github.com/gnaneshwar151120/wsl-almalinux-monitoring) |
-| 🟦 **Data Engineering** | [nyc-taxi-etl](https://github.com/gnaneshwar151120/pyspark-nyc-taxi-etl) · [sql-solutions](https://github.com/gnaneshwar151120/StrataScratch-SQL-solutions) · [ad-hoc-sql](https://github.com/gnaneshwar151120/AD_HOC) |
-| 🟪 **Machine Learning** | [pca-images](https://github.com/gnaneshwar151120/Linear_Algebra_Meets_Images_PCA_for_compression_and_Feature_Extraction) · [card-churn](https://github.com/gnaneshwar151120/credit-card-cancellation-prediction) · [card-default](https://github.com/gnaneshwar151120/defaultcreditcard) |
-| 🟧 **Analytics** | [insurance-claims](https://github.com/gnaneshwar151120/insurance-auto-claims-analysis) · [mental-health](https://github.com/gnaneshwar151120/Mental-Health-Care-in-the-Last-4-WEEKS) · [ipl-best-xi](https://github.com/gnaneshwar151120/BEST-XI-OF-IPL-2024) · [aqi-index](https://github.com/gnaneshwar151120/AQI_INDEX) |
-
-</div>
-
-<br>
 
 ### `01` whoami
 
