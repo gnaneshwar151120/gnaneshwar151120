@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/hero?username=gnaneshwar151120&theme=midnight&style=aura" alt="Gnaneshwar Reddy" width="100%">
+  <img src="assets/banner.svg" alt="Gnaneshwar Reddy. I build AI agents that do real work in healthcare, and a person approves every write." width="100%">
 </p>
 
 ### Hi, I'm Gnaneshwar 👋
