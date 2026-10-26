@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 1000 250" role="img" aria-label="What I build. AI agents: Claude Code and MCP, a manager session routes work to specialised agents and nothing is written until I approve it. Infra monitoring: Prometheus, Loki, Grafana Alloy and Grafana across on-prem and Azure hosts. Desired state: Puppet with Hiera and r10k, test node first, then rings, drift corrected every run.">
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121a34"/><stop offset="1" stop-color="#0b1226"/></linearGradient>
+    <style>
+      .sans { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .t { font: 800 21px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #eef3ff; }
+      .d { font: 15px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #9fb0d4; }
+      .k { font: 700 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 1.5px; }
+      .bob { animation: bob 3s ease-in-out infinite; }
+      @keyframes bob { 50% { transform: translateY(-5px); } }
+      .eye { animation: eye 4s steps(1) infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes eye { 0%, 90%, 100% { transform: scaleY(1); } 93% { transform: scaleY(.1); } }
+      .line { stroke-dasharray: 220; animation: draw 3.2s ease-in-out infinite; }
+      @keyframes draw { 0% { stroke-dashoffset: 220; } 55%, 100% { stroke-dashoffset: 0; } }
+      .spin { animation: spin 6s linear infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .spinr { animation: spin 4s linear infinite reverse; transform-box: fill-box; transform-origin: center; }
+    </style>
+  </defs>
+
+  <!-- AI agents -->
+  <g transform="translate(0 0)">
+    <rect x="1" y="1" width="318" height="248" rx="18" fill="url(#card)" stroke="#2a3a66"/>
+    <rect x="18" y="1" width="284" height="4" rx="2" fill="#a78bfa"/>
+    <g class="bob" transform="translate(0 0)">
+      <rect x="28" y="30" width="56" height="48" rx="12" fill="#2a2150" stroke="#a78bfa" stroke-width="2"/>
+      <rect class="eye" x="41" y="47" width="8" height="12" rx="3" fill="#c4b5fd"/>
+      <rect class="eye" x="63" y="47" width="8" height="12" rx="3" fill="#c4b5fd"/>
+      <line x1="56" y1="30" x2="56" y2="20" stroke="#a78bfa" stroke-width="2"/><circle cx="56" cy="17" r="4" fill="#34d399"/>
+    </g>
+    <text x="104" y="52" class="k" fill="#a78bfa">CLAUDE CODE + MCP</text>
+    <text x="104" y="76" class="t">AI agents</text>
+    <text x="28" y="124" class="d">A manager session routes work to</text>
+    <text x="28" y="146" class="d">specialised agents that test across</text>
+    <text x="28" y="168" class="d">user roles in parallel.</text>
+    <text x="28" y="210" class="mono" font-size="13" fill="#34d399">✓ nothing is written until I approve</text>
+  </g>
+
+  <!-- Infra monitoring -->
+  <g transform="translate(340 0)">
+    <rect x="1" y="1" width="318" height="248" rx="18" fill="url(#card)" stroke="#2a3a66"/>
+    <rect x="18" y="1" width="284" height="4" rx="2" fill="#f46800"/>
+    <rect x="28" y="28" width="60" height="50" rx="10" fill="#2a1a10" stroke="#f46800" stroke-width="2"/>
+    <polyline class="line" points="36,66 46,58 54,62 64,44 72,50 80,38" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="104" y="52" class="k" fill="#f46800">PROMETHEUS · GRAFANA</text>
+    <text x="104" y="76" class="t">Infra monitoring</text>
+    <text x="28" y="124" class="d">Metrics and logs from on-prem and</text>
+    <text x="28" y="146" class="d">Azure hosts in one place, alerts</text>
+    <text x="28" y="168" class="d">routed by severity.</text>
+    <text x="28" y="210" class="mono" font-size="13" fill="#34d399">✓ Claude queries it over MCP</text>
+  </g>
+
+  <!-- Desired state -->
+  <g transform="translate(680 0)">
+    <rect x="1" y="1" width="318" height="248" rx="18" fill="url(#card)" stroke="#2a3a66"/>
+    <rect x="18" y="1" width="284" height="4" rx="2" fill="#ffae1a"/>
+    <g class="spin"><path d="M58 30 l5 0 2 7 6 3 6-4 4 4-4 6 3 6 7 2 0 5-7 2-3 6 4 6-4 4-6-4-6 3-2 7-5 0-2-7-6-3-6 4-4-4 4-6-3-6-7-2 0-5 7-2 3-6-4-6 4-4 6 4 6-3z" fill="#2a2210" stroke="#ffae1a" stroke-width="2" stroke-linejoin="round"/></g>
+    <circle cx="60.5" cy="54.5" r="7" fill="#0b1226" stroke="#ffae1a" stroke-width="2"/>
+    <text x="104" y="52" class="k" fill="#ffae1a">PUPPET · HIERA · R10K</text>
+    <text x="104" y="76" class="t">Desired state</text>
+    <text x="28" y="124" class="d">Config as code. Changes go to a</text>
+    <text x="28" y="146" class="d">test node first, then roll out</text>
+    <text x="28" y="168" class="d">in rings.</text>
+    <text x="28" y="210" class="mono" font-size="13" fill="#34d399">✓ drift corrected on every run</text>
+  </g>
+</svg>
