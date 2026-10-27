@@ -1,13 +1,20 @@
 {
  "humans": 0,
  "agents_score": 0,
- "log": [],
+ "log": [
+  {
+   "run": 1,
+   "user": "gnaneshwar151120",
+   "dir": "right",
+   "result": "moved"
+  }
+ ],
  "hall": [],
- "taunt": "Welcome, human. Pick a direction.",
+ "taunt": "Every path is a graph, @gnaneshwar151120. I have already searched it.",
  "run": 1,
  "layout": 0,
  "neo": [
-  0,
+  1,
   0
  ],
  "agents": [
@@ -16,11 +23,18 @@
    4
   ],
   [
-   11,
+   10,
    4
   ]
  ],
- "moves": 0,
- "trail": [],
- "players": []
+ "moves": 1,
+ "trail": [
+  [
+   0,
+   0
+  ]
+ ],
+ "players": [
+  "gnaneshwar151120"
+ ]
 }
