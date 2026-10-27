@@ -107,30 +107,48 @@ def pill(color, title, sub, file_label):
 
 
 def construct():
-    w, h = 1000, 450
-    skills = ["Claude Code", "MCP", "Python", "SQL", "PySpark", "Prometheus", "Grafana", "Puppet", "Linux", "Azure"]
-    loop, start, per = 12, .6, .7
-    css, rows = [], []
-    for i, s in enumerate(skills):
-        a = (start + i * per) / loop * 100
-        b = (start + i * per + per * .9) / loop * 100
-        y = 112 + i * 26
-        css.append(f".b{i} {{ animation: b{i} {loop}s infinite; transform-box: fill-box; transform-origin: left; transform: scaleX(0); }}"
-                   f"@keyframes b{i} {{ 0%, {a:.1f}% {{ transform: scaleX(0); }} {b:.1f}%, 96% {{ transform: scaleX(1); }} 100% {{ transform: scaleX(0); }} }}"
-                   f".k{i} {{ animation: k{i} {loop}s infinite; opacity: 0; }}"
-                   f"@keyframes k{i} {{ 0%, {b:.1f}% {{ opacity: 0; }} {b + .5:.1f}%, 96% {{ opacity: 1; }} 100% {{ opacity: 0; }} }}")
-        rows.append(f'<text class="m" x="70" y="{y}" font-size="15" fill="{G2}">{esc(s):<12}</text>'
-                    f'<rect x="230" y="{y - 13}" width="560" height="14" rx="3" fill="{G3}" opacity=".18"/>'
-                    f'<rect class="b{i}" x="230" y="{y - 13}" width="560" height="14" rx="3" fill="{G}"/>'
-                    f'<text class="m k{i}" x="806" y="{y}" font-size="14" fill="{G}">100% ✓</text>')
-    done = (start + len(skills) * per + .3)
-    fin, fcss = typed(["> I know MCP."], done, 1.6, loop, 70, 392, 0, 26, cls="f")
+    """Every tool from the resume master, grouped; chips load one by one. Tools still being learned stay "loading"."""
+    w, h = 1000, 470
+    groups = [("AI", ["Claude Code", "AI agents", "MCP", "prompt engineering"]),
+              ("TESTING", ["pytest", "Playwright", "httpx"]),
+              ("INFRA", ["Linux", "NGINX", "Redis", "Puppet"]),
+              ("OBSERVE", ["Prometheus", "Grafana", "Loki", "Alloy"]),
+              ("DATA", ["Python", "SQL", "PySpark", "PostgreSQL", "MySQL", "Databricks*"]),
+              ("CLOUD+OPS", ["Azure", "Azure DevOps", "Git", "GitHub", "Power BI", "Data Factory*"])]
+    loop, start, per = 14, .5, .22
+    css, rows, k = [], [], 0
+    for gi, (name, tools) in enumerate(groups):
+        y = 118 + gi * 44
+        rows.append(f'<text class="m" x="70" y="{y}" font-size="13" fill="{G3}" letter-spacing="2">{name}</text>')
+        x = 200
+        for t in tools:
+            learning = t.endswith("*")
+            t = t.rstrip("*")
+            cw = len(t) * 8.7 + 24
+            a = (start + k * per) / loop * 100
+            b = a + .6
+            css.append(f".c{k} {{ animation: c{k} {loop}s infinite; opacity: 0; }}"
+                       f"@keyframes c{k} {{ 0%, {a:.1f}% {{ opacity: 0; }} {b:.1f}%, 96% {{ opacity: 1; }} 100% {{ opacity: 0; }} }}")
+            if learning:
+                rows.append(f'<g class="c{k}"><rect x="{x}" y="{y - 18}" width="{cw + 74:.0f}" height="26" rx="6" fill="none" stroke="{G3}" stroke-dasharray="4 3"/>'
+                            f'<text class="m" x="{x + 12}" y="{y}" font-size="14.5" fill="{G2}">{esc(t)}</text>'
+                            f'<text class="m caret" x="{x + cw - 4:.0f}" y="{y}" font-size="12" fill="{G3}">loading</text></g>')
+                cw += 74
+            else:
+                rows.append(f'<g class="c{k}"><rect x="{x}" y="{y - 18}" width="{cw:.0f}" height="26" rx="6" fill="{G}" fill-opacity=".1" stroke="{G}" stroke-opacity=".8"/>'
+                            f'<text class="m" x="{x + 12}" y="{y}" font-size="14.5" fill="{G}">{esc(t)}</text></g>')
+            x += cw + 10
+            k += 1
+    done = start + k * per + .4
+    fin, fcss = typed(["> I know MCP."], done, 1.6, loop, 70, 412, 0, 26, cls="f")
     body = f'''{rain(w, h, 58, seed=21, opacity=.22)}
-<rect x="40" y="40" width="{w - 80}" height="{h - 80}" rx="14" fill="#000" fill-opacity=".78" stroke="{G3}" stroke-opacity=".6"/>
+<rect x="40" y="40" width="{w - 80}" height="{h - 80}" rx="14" fill="#000" fill-opacity=".8" stroke="{G3}" stroke-opacity=".6"/>
 <text class="m" x="70" y="76" font-size="13" fill="{G3}" letter-spacing="3">THE CONSTRUCT · LOADING TRAINING PROGRAMS</text>
+<text class="m" x="{w - 70}" y="76" font-size="12" fill="{G3}" text-anchor="end">dashed = still loading</text>
 {"".join(rows)}
 {fin}'''
-    return frame(w, h, body, "The Construct: loading training programs: Claude Code, MCP, Python, SQL, PySpark, Prometheus, Grafana, Puppet, Linux, Azure. I know MCP.", "\n".join(css) + fcss)
+    flat = ", ".join(t.rstrip("*") for _, ts in groups for t in ts)
+    return frame(w, h, body, f"The Construct: tools I know: {flat}. Databricks and Azure Data Factory still loading. I know MCP.", "\n".join(css) + fcss)
 
 
 def agents():

@@ -1,0 +1,26 @@
+{
+ "humans": 0,
+ "agents_score": 0,
+ "log": [],
+ "hall": [],
+ "taunt": "Welcome, human. Pick a direction.",
+ "run": 1,
+ "layout": 0,
+ "neo": [
+  0,
+  0
+ ],
+ "agents": [
+  [
+   5,
+   4
+  ],
+  [
+   11,
+   4
+  ]
+ ],
+ "moves": 0,
+ "trail": [],
+ "players": []
+}

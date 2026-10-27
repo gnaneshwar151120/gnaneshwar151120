@@ -10,12 +10,47 @@
 </p>
 
 <p align="center">
-  <img src="assets/matrix/construct.svg" alt="The Construct: loading training programs. I know MCP." width="100%">
+  <img src="assets/matrix/construct.svg" alt="The Construct: tools I know. AI: Claude Code, AI agents, MCP, prompt engineering. Testing: pytest, Playwright, httpx. Infra: Linux, NGINX, Redis, Puppet. Observability: Prometheus, Grafana, Loki, Alloy. Data: Python, SQL, PySpark, PostgreSQL, MySQL, Databricks (learning). Cloud and ops: Azure, Azure DevOps, Git, GitHub, Power BI, Azure Data Factory (learning)." width="100%">
 </p>
 
 <p align="center">
-  <img src="assets/matrix/agents.svg" alt="Unlike the other agents, mine ask before they write." width="100%">
+  <img src="assets/matrix/signal.svg" alt="Signal: my GitHub contributions over the last 12 months, one glyph per day." width="100%">
 </p>
+
+<p align="center">
+  <img src="assets/matrix/escape.svg" alt="Escape the Matrix: a community game. Guide Neo to the ringing phone before the agents catch him." width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/gnaneshwar151120/gnaneshwar151120/issues/new?title=matrix%3A%20left&body=Press%20%22Create%22.%20Neo%20moves%20left%20and%20the%20board%20updates%20in%20about%20a%20minute."><img src="assets/matrix/move-left.svg" alt="Move Neo left" width="24%"></a>
+  <a href="https://github.com/gnaneshwar151120/gnaneshwar151120/issues/new?title=matrix%3A%20up&body=Press%20%22Create%22.%20Neo%20moves%20up%20and%20the%20board%20updates%20in%20about%20a%20minute."><img src="assets/matrix/move-up.svg" alt="Move Neo up" width="24%"></a>
+  <a href="https://github.com/gnaneshwar151120/gnaneshwar151120/issues/new?title=matrix%3A%20down&body=Press%20%22Create%22.%20Neo%20moves%20down%20and%20the%20board%20updates%20in%20about%20a%20minute."><img src="assets/matrix/move-down.svg" alt="Move Neo down" width="24%"></a>
+  <a href="https://github.com/gnaneshwar151120/gnaneshwar151120/issues/new?title=matrix%3A%20right&body=Press%20%22Create%22.%20Neo%20moves%20right%20and%20the%20board%20updates%20in%20about%20a%20minute."><img src="assets/matrix/move-right.svg" alt="Move Neo right" width="24%"></a>
+</p>
+
+<details>
+<summary><b>How to play</b> · <code>you need a GitHub account · one click = one move</code></summary>
+<br>
+
+**Goal:** get Neo (bright figure, top left) to the ringing phone ☎ (bottom right) before an Agent Smith (outlined figure in sunglasses) catches him.
+
+1. **Pick a direction.** Click ◀ LEFT, ▲ UP, ▼ DOWN or RIGHT ▶ above.
+2. **Press "Create".** GitHub opens a new issue that's already filled in (title `matrix: up`, for example). You don't need to type anything.
+3. **Wait about a minute.** A GitHub Action moves Neo one square, then the agents move. It replies on your issue and closes it.
+4. **Come back and refresh this page.** The board shows the new position, and your name appears under *LAST MOVES*.
+
+**Rules**
+- Neo moves one square per issue. Hitting a wall does nothing; the issue says so.
+- The agents take turns chasing Neo by the shortest path (a breadth-first search) and **rest every third move**. Use those turns to slip past.
+- After move 30 the agents stop resting and all move every turn. At move 60 the system reboots.
+- **Escape:** Humans get a point, and whoever makes the winning move enters the *ESCAPED* hall of fame.
+- **Caught or rebooted:** Agents get a point.
+- Either way, a new maze loads. There are three, in rotation.
+- It's one shared game: everyone who plays moves the same Neo. Team up.
+
+**Tip:** The agents always know where Neo is, but they only ever chase, never cut him off. Draw one into a side corridor, then run on a rest turn.
+
+</details>
 
 <p align="center">
   <img src="assets/matrix/programs.svg" alt="Training programs completed: 14" width="100%">
