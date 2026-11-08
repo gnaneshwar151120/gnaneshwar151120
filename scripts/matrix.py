@@ -5,6 +5,7 @@ python3 scripts/matrix.py
 Original artwork: procedural digital rain, terminal typing and progress bars in SVG with CSS/SMIL animation.
 No film stills, logos or fonts are used.
 """
+import json
 import random
 from pathlib import Path
 
@@ -20,6 +21,34 @@ BASE_CSS = f"""
     .scan {{ animation: scan 6s linear infinite; }}
     @keyframes scan {{ from {{ transform: translateY(-40px); }} to {{ transform: translateY(100%); }} }}
 """
+
+
+def load_certs():
+    """Certificates written by scripts/sync_certs.py (data/certs.json); None if absent, then the built-in text is used."""
+    try:
+        return json.loads((Path(__file__).resolve().parents[2] / "data" / "certs.json").read_text())
+    except Exception:
+        return None
+
+
+CERTS = load_certs()
+
+
+def cert_line():
+    if not CERTS:
+        return "4x Claude Certified · 3x Microsoft Certified · 6x Grafana Labs · Databricks"
+    parts = []
+    for g in CERTS["groups"]:
+        n, k = g["count"], g["key"]
+        if k == "anthropic":
+            parts.append(f"{n}x Claude Certified")
+        elif k == "microsoft":
+            parts.append(f"{n}x Microsoft Certified")
+        elif k == "grafana":
+            parts.append(f"{n}x Grafana Labs")
+        else:
+            parts.append(g["name"] if n == 1 else f"{n}x {g['name']}")
+    return " · ".join(parts)
 
 
 def esc(s):
@@ -85,7 +114,7 @@ def hero():
 {lines}
 <text class="m" x="70" y="300" font-size="50" font-weight="700" fill="{G}" letter-spacing="2">GNANESHWAR REDDY<tspan class="caret">█</tspan></text>
 <text class="m" x="72" y="336" font-size="17" fill="{G2}">AI agents · infra monitoring · data   //  Engineer @ Genzeon</text>
-<text class="m" x="72" y="358" font-size="13" fill="{G3}">4x Claude Certified · 3x Microsoft Certified · 6x Grafana Labs · Databricks</text>'''
+<text class="m" x="72" y="358" font-size="13" fill="{G3}">{esc(cert_line())}</text>'''
     return frame(w, h, body, "Gnaneshwar Reddy. Wake up. The repos have you. Follow the green packets. AI agents, infra monitoring and data.", css)
 
 
@@ -113,8 +142,8 @@ def construct():
               ("TESTING", ["pytest", "Playwright", "httpx"]),
               ("INFRA", ["Linux", "NGINX", "Redis", "Puppet"]),
               ("OBSERVE", ["Prometheus", "Grafana", "Loki", "Alloy"]),
-              ("DATA", ["Python", "SQL", "PySpark", "PostgreSQL", "MySQL", "Databricks*"]),
-              ("CLOUD+OPS", ["Azure", "Azure DevOps", "Git", "GitHub", "Power BI", "Data Factory*"])]
+              ("DATA", ["Python", "SQL", "PySpark", "PostgreSQL", "MySQL"]),
+              ("CLOUD+OPS", ["Azure", "Azure DevOps", "Git", "GitHub", "Power BI"])]
     loop, start, per = 14, .5, .22
     css, rows, k = [], [], 0
     for gi, (name, tools) in enumerate(groups):
@@ -144,11 +173,10 @@ def construct():
     body = f'''{rain(w, h, 58, seed=21, opacity=.22)}
 <rect x="40" y="40" width="{w - 80}" height="{h - 80}" rx="14" fill="#000" fill-opacity=".8" stroke="{G3}" stroke-opacity=".6"/>
 <text class="m" x="70" y="76" font-size="13" fill="{G3}" letter-spacing="3">THE CONSTRUCT · LOADING TRAINING PROGRAMS</text>
-<text class="m" x="{w - 70}" y="76" font-size="12" fill="{G3}" text-anchor="end">dashed = still loading</text>
 {"".join(rows)}
 {fin}'''
     flat = ", ".join(t.rstrip("*") for _, ts in groups for t in ts)
-    return frame(w, h, body, f"The Construct: tools I know: {flat}. Databricks and Azure Data Factory still loading. I know MCP.", "\n".join(css) + fcss)
+    return frame(w, h, body, f"The Construct: tools I know: {flat}. I know MCP.", "\n".join(css) + fcss)
 
 
 def agents():
@@ -174,11 +202,16 @@ def agents():
 
 
 def programs():
-    w, h = 1000, 262
-    groups = [("4", "Anthropic", "Claude Architect (Professional, Foundations), Developer, Associate"),
-              ("3", "Microsoft", "AZ-900 · DP-900 · GitHub Foundations"),
-              ("6", "Grafana Labs", "PromQL · LogQL · Observability · Dashboards · Explorer · Trailblazer"),
-              ("1", "Databricks", "Databricks Fundamentals")]
+    if CERTS:
+        groups = [(str(g["count"]), g["name"], " · ".join(i["svg"] for i in g["items"])) for g in CERTS["groups"]]
+        total = CERTS["total"]
+    else:
+        groups = [("4", "Anthropic", "Claude Architect (Professional, Foundations), Developer, Associate"),
+                  ("3", "Microsoft", "AZ-900 · DP-900 · GitHub Foundations"),
+                  ("6", "Grafana Labs", "PromQL · LogQL · Observability · Dashboards · Explorer · Trailblazer"),
+                  ("1", "Databricks", "Databricks Fundamentals")]
+        total = 14
+    w, h = 1000, 262 + max(0, len(groups) - 4) * 30
     rows = []
     for i, (n, who, what) in enumerate(groups):
         y = 104 + i * 30
@@ -186,9 +219,9 @@ def programs():
                     f'<text class="m" x="320" y="{y}" font-size="14" fill="{G2}">{esc(what)}</text>')
     body = f'''{rain(w, h, 58, seed=41, opacity=.2)}
 <rect x="40" y="36" width="{w - 80}" height="{h - 72}" rx="14" fill="#000" fill-opacity=".8" stroke="{G3}" stroke-opacity=".6"/>
-<text class="m" x="70" y="70" font-size="13" fill="{G3}" letter-spacing="3">TRAINING PROGRAMS COMPLETED · 14</text>
+<text class="m" x="70" y="70" font-size="13" fill="{G3}" letter-spacing="3">TRAINING PROGRAMS COMPLETED · {total}</text>
 {"".join(rows)}'''
-    return frame(w, h, body, "Training programs completed: 4 Anthropic Claude certifications, 3 Microsoft, 6 Grafana Labs, 1 Databricks.")
+    return frame(w, h, body, "Training programs completed: " + ", ".join(f"{n} {who}" for n, who, _ in groups) + ".")
 
 
 def operator():

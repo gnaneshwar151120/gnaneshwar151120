@@ -52,12 +52,13 @@ languages = ["Jupyter Notebook"]
 "AQI_INDEX" = "aqi-index"
 
 # Blimps float over the city (up to 6): certifications, awards, anything.
+# certs:start
 [[blimp]]
 text = "4× Claude Certified"
 color = "#d97757"
 
 [[blimp]]
-text = "3× Microsoft Certified"
+text = "4× Microsoft Certified"
 color = "#0078d4"
 
 [[blimp]]
@@ -67,6 +68,7 @@ color = "#f46800"
 [[blimp]]
 text = "Databricks Fundamentals"
 color = "#ff3621"
+# certs:end
 
 # Traffic around the island: each vehicle carries one technology.
 # Kinds cycle through car, bus, truck, taxi and van; pin one with {text = "Python", type = "bus"}.
